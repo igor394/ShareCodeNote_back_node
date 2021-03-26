@@ -31,7 +31,7 @@ http.createServer((req, res) => {
             if (params.note) {
                 let note = params.note;
                 note = note.trim();
-                console.log(note);
+                // console.log(note);
                 Notes.create({
                     url: randomstring.generate({
                         length: 24,
@@ -42,7 +42,7 @@ http.createServer((req, res) => {
                 }).then(result => {
                     res.end(JSON.stringify({ 'result': true, "url": result.url }));
                 }).catch(err => {
-                    console.log(err);
+                    // console.log(err);
                     res.end(JSON.stringify({ 'result': false, "error": err }));
 
                 });
@@ -50,7 +50,7 @@ http.createServer((req, res) => {
             else if (params.url) {
                 let url = params.url;
                 url = url.trim();
-                console.log(url);
+                // console.log(url);
                 Notes.findOne({
                     where: {
                         "url": url
@@ -66,7 +66,7 @@ http.createServer((req, res) => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                         res.end(JSON.stringify({ 'result': false, "error": err }));
                     });
             }
