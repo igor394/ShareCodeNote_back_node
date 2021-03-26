@@ -1,0 +1,1 @@
+The server on the node, when receiving the text of the note, creates a 24-character hash and makes an entry in the mysql database table: generated hash; note text; id; date. Then it returns the hash text to the front.
